@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - AssignTrack</title>
+    <link rel="stylesheet" href="../landing/styles.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-tasks"></i>
+                <span>AssignTrack</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Assignments</a>
+                <a href="#" class="nav-link">Calendar</a>
+                <a href="#" class="nav-link">Progress</a>
+            </div>
+            <div class="nav-user">
+                <div class="notifications-dropdown">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="notifications-panel">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="mark-all-read">Mark all read</button>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon urgent">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p><strong>Database Design</strong> is due tomorrow!</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item unread">
+                                <div class="notification-icon info">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p><strong>Web Development</strong> feedback received</p>
+                                    <span class="notification-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item unread">
+                                <div class="notification-icon success">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p><strong>Data Structures</strong> submitted successfully</p>
+                                    <span class="notification-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-btn">
+                        <img src="https://via.placeholder.com/32x32/000000/ffffff?text=JS" alt="User" class="user-avatar">
+                        <span>John Smith</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-menu">
+                        <a href="#" class="user-menu-item">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                        <a href="#" class="user-menu-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <a href="#" class="user-menu-item">
+                            <i class="fas fa-question-circle"></i>
+                            Help
+                        </a>
+                        <div class="user-menu-divider"></div>
+                        <a href="../landing/index.html" class="user-menu-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sign Out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Student Portal</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active">
+                    <i class="fas fa-home"></i>
+                    Overview
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-tasks"></i>
+                    My Assignments
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-calendar"></i>
+                    Calendar
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-chart-line"></i>
+                    Progress
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-folder"></i>
+                    Files
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Courses
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <div class="welcome-text">
+                        <h1>Welcome back, John! 👋</h1>
+                        <p>You have <strong>3 assignments</strong> due this week. Let's stay on track!</p>
+                    </div>
+                    <div class="welcome-actions">
+                        <button class="btn btn-primary" id="addAssignmentBtn">
+                            <i class="fas fa-plus"></i>
+                            Add Assignment
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-calendar-plus"></i>
+                            View Calendar
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="quick-stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>5</h3>
+                            <p>Pending</p>
+                            <span class="stat-trend">+2 this week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon urgent">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>2</h3>
+                            <p>Due Soon</p>
+                            <span class="stat-trend urgent">Tomorrow</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon completed">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>12</h3>
+                            <p>Completed</p>
+                            <span class="stat-trend success">+3 this month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon overdue">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>1</h3>
+                            <p>Overdue</p>
+                            <span class="stat-trend danger">2 days late</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-content-grid">
+                <!-- Left Column -->
+                <div class="dashboard-left-column">
+                    <!-- Upcoming Deadlines -->
+                    <section class="upcoming-deadlines-section">
+                        <div class="section-header">
+                            <h2>Upcoming Deadlines</h2>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="deadlines-list">
+                            <div class="deadline-item urgent">
+                                <div class="deadline-date">
+                                    <span class="day">15</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="deadline-content">
+                                    <h4>Database Design Project</h4>
+                                    <p>Database Design • Due tomorrow</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span>75% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="deadline-actions">
+                                    <button class="btn btn-primary btn-small">
+                                        <i class="fas fa-upload"></i>
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <span class="day">18</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="deadline-content">
+                                    <h4>React Portfolio Website</h4>
+                                    <p>Web Development • Due in 3 days</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 45%"></div>
+                                        </div>
+                                        <span>45% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="deadline-actions">
+                                    <button class="btn btn-secondary btn-small">
+                                        <i class="fas fa-edit"></i>
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="deadline-item">
+                                <div class="deadline-date">
+                                    <span class="day">20</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="deadline-content">
+                                    <h4>Final Exam Preparation</h4>
+                                    <p>Algorithms • Due in 5 days</p>
+                                    <div class="deadline-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 30%"></div>
+                                        </div>
+                                        <span>30% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="deadline-actions">
+                                    <button class="btn btn-secondary btn-small">
+                                        <i class="fas fa-book"></i>
+                                        Study
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Activity -->
+                    <section class="recent-activity-section">
+                        <div class="section-header">
+                            <h2>Recent Activity</h2>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Data Structures Assignment</strong> submitted successfully</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon info">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Received feedback on <strong>Web Development Project</strong></p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon warning">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Reminder: <strong>Database Design</strong> due tomorrow</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Algorithms Quiz</strong> completed with 95% score</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-right-column">
+                    <!-- Quick Actions -->
+                    <section class="quick-actions-section">
+                        <div class="section-header">
+                            <h2>Quick Actions</h2>
+                        </div>
+                        <div class="quick-actions-grid">
+                            <button class="quick-action-btn">
+                                <div class="action-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <span>Add Assignment</span>
+                            </button>
+                            <button class="quick-action-btn">
+                                <div class="action-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <span>Upload Files</span>
+                            </button>
+                            <button class="quick-action-btn">
+                                <div class="action-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <span>View Calendar</span>
+                            </button>
+                            <button class="quick-action-btn">
+                                <div class="action-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <span>Progress Report</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Course Progress -->
+                    <section class="course-progress-section">
+                        <div class="section-header">
+                            <h2>Course Progress</h2>
+                        </div>
+                        <div class="course-progress-list">
+                            <div class="course-progress-item">
+                                <div class="course-info">
+                                    <h4>Web Development</h4>
+                                    <p>CS 301</p>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="course-progress-item">
+                                <div class="course-info">
+                                    <h4>Data Structures</h4>
+                                    <p>CS 201</p>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 72%"></div>
+                                    </div>
+                                    <span>72%</span>
+                                </div>
+                            </div>
+                            <div class="course-progress-item">
+                                <div class="course-info">
+                                    <h4>Database Design</h4>
+                                    <p>CS 401</p>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 68%"></div>
+                                    </div>
+                                    <span>68%</span>
+                                </div>
+                            </div>
+                            <div class="course-progress-item">
+                                <div class="course-info">
+                                    <h4>Algorithms</h4>
+                                    <p>CS 301</p>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 91%"></div>
+                                    </div>
+                                    <span>91%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Study Tips -->
+                    <section class="study-tips-section">
+                        <div class="section-header">
+                            <h2>Study Tips</h2>
+                        </div>
+                        <div class="study-tips-list">
+                            <div class="study-tip">
+                                <div class="tip-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h4>Break Down Large Tasks</h4>
+                                    <p>Divide complex assignments into smaller, manageable chunks</p>
+                                </div>
+                            </div>
+                            <div class="study-tip">
+                                <div class="tip-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h4>Use the Pomodoro Technique</h4>
+                                    <p>Study for 25 minutes, then take a 5-minute break</p>
+                                </div>
+                            </div>
+                            <div class="study-tip">
+                                <div class="tip-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h4>Review Regularly</h4>
+                                    <p>Spend 10 minutes each day reviewing previous material</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- All Assignments Section -->
+            <section class="all-assignments-section">
+                <div class="section-header">
+                    <h2>All Assignments</h2>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search assignments..." id="searchInput">
+                        </div>
+                        <div class="filters">
+                            <select id="subjectFilter" class="filter-select">
+                                <option value="">All Subjects</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="data-structures">Data Structures</option>
+                                <option value="database">Database Design</option>
+                                <option value="algorithms">Algorithms</option>
+                            </select>
+                            <select id="statusFilter" class="filter-select">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="submitted">Submitted</option>
+                                <option value="completed">Completed</option>
+                                <option value="overdue">Overdue</option>
+                            </select>
+                            <select id="sortBy" class="filter-select">
+                                <option value="due-date">Sort by Due Date</option>
+                                <option value="subject">Sort by Subject</option>
+                                <option value="priority">Sort by Priority</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assignments-container" id="assignmentsContainer">
+                    <!-- Assignment Cards -->
+                    <div class="assignment-card urgent" data-subject="database" data-status="pending">
+                        <div class="assignment-header">
+                            <div class="assignment-status urgent"></div>
+                            <div class="assignment-title">
+                                <h3>Database Design Project</h3>
+                                <span class="subject-tag">Database Design</span>
+                            </div>
+                            <div class="assignment-actions">
+                                <button class="action-btn" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>Design and implement a relational database for an e-commerce system with proper normalization and relationships.</p>
+                            <div class="assignment-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Due: Tomorrow</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-file"></i>
+                                    <span>PDF, SQL</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>15% of grade</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assignment-footer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="progress-text">75% Complete</span>
+                            <button class="btn btn-primary btn-small" onclick="openAssignmentDetail('assignment1')">
+                                <i class="fas fa-upload"></i>
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card pending" data-subject="web-development" data-status="in-progress">
+                        <div class="assignment-header">
+                            <div class="assignment-status pending"></div>
+                            <div class="assignment-title">
+                                <h3>React Portfolio Website</h3>
+                                <span class="subject-tag">Web Development</span>
+                            </div>
+                            <div class="assignment-actions">
+                                <button class="action-btn" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>Create a responsive portfolio website using React.js with modern design principles and animations.</p>
+                            <div class="assignment-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Due: Dec 15</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-file"></i>
+                                    <span>ZIP, GitHub</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>20% of grade</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assignment-footer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="progress-text">45% Complete</span>
+                            <button class="btn btn-secondary btn-small" onclick="openAssignmentDetail('assignment2')">
+                                <i class="fas fa-eye"></i>
+                                View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card completed" data-subject="data-structures" data-status="completed">
+                        <div class="assignment-header">
+                            <div class="assignment-status completed"></div>
+                            <div class="assignment-title">
+                                <h3>Binary Search Tree Implementation</h3>
+                                <span class="subject-tag">Data Structures</span>
+                            </div>
+                            <div class="assignment-actions">
+                                <button class="action-btn" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>Implement a binary search tree with insertion, deletion, and traversal operations in Java.</p>
+                            <div class="assignment-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Due: Dec 10</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-file"></i>
+                                    <span>Java, PDF</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>10% of grade</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assignment-footer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-text">Completed</span>
+                            <button class="btn btn-success btn-small" onclick="openAssignmentDetail('assignment3')">
+                                <i class="fas fa-check"></i>
+                                Submitted
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card overdue" data-subject="algorithms" data-status="overdue">
+                        <div class="assignment-header">
+                            <div class="assignment-status overdue"></div>
+                            <div class="assignment-title">
+                                <h3>Sorting Algorithm Analysis</h3>
+                                <span class="subject-tag">Algorithms</span>
+                            </div>
+                            <div class="assignment-actions">
+                                <button class="action-btn" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="assignment-content">
+                            <p>Analyze and compare the performance of different sorting algorithms with time complexity analysis.</p>
+                            <div class="assignment-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Due: Dec 5</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-file"></i>
+                                    <span>PDF, Code</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>12% of grade</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assignment-footer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%"></div>
+                            </div>
+                            <span class="progress-text">30% Complete</span>
+                            <button class="btn btn-danger btn-small" onclick="openAssignmentDetail('assignment4')">
+                                <i class="fas fa-exclamation"></i>
+                                Overdue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Assignment Detail Modal -->
+    <div class="modal" id="assignmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Assignment Details</h2>
+                <button class="modal-close" onclick="closeAssignmentDetail()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="assignment-detail-content">
+                    <div class="detail-section">
+                        <h3>Description</h3>
+                        <p id="modalDescription">Assignment description will appear here.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Requirements</h3>
+                        <ul id="modalRequirements">
+                            <li>Requirement 1</li>
+                            <li>Requirement 2</li>
+                            <li>Requirement 3</li>
+                        </ul>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Submission</h3>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="upload-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop files here or click to browse</p>
+                                <input type="file" id="fileInput" multiple>
+                                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                                    Choose Files
+                                </button>
+                            </div>
+                            <div class="uploaded-files" id="uploadedFiles">
+                                <!-- Uploaded files will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAssignmentDetail()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitAssignment()">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Assignment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Assignment Modal -->
+    <div class="modal" id="addAssignmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Assignment</h2>
+                <button class="modal-close" onclick="closeAddAssignment()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="assignment-form" id="addAssignmentForm">
+                    <div class="form-group">
+                        <label for="assignmentTitle">Assignment Title</label>
+                        <input type="text" id="assignmentTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentSubject">Subject</label>
+                        <select id="assignmentSubject" required>
+                            <option value="">Select Subject</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="data-structures">Data Structures</option>
+                            <option value="database">Database Design</option>
+                            <option value="algorithms">Algorithms</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentDescription">Description</label>
+                        <textarea id="assignmentDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="assignmentDueDate">Due Date</label>
+                            <input type="date" id="assignmentDueDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="assignmentWeight">Grade Weight (%)</label>
+                            <input type="number" id="assignmentWeight" min="1" max="100" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentFiles">Required Files</label>
+                        <input type="text" id="assignmentFiles" placeholder="e.g., PDF, ZIP, Code files">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddAssignment()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveAssignment()">
+                    <i class="fas fa-save"></i>
+                    Save Assignment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html> 

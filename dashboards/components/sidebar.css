@@ -1,0 +1,87 @@
+/**
+ * AssignTrack Sidebar Styles
+ * Updated for black-and-white theme and collapsible functionality
+ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    z-index: var(--z-sticky);
+    transition: width var(--transition-normal);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--space-md);
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.sidebar-nav {
+    padding: var(--space-md);
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    transition: var(--transition-fast);
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    background: var(--primary-light);
+    color: var(--text-primary);
+}
+
+.sidebar-item i {
+    font-size: var(--font-size-lg);
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar.collapsed .sidebar-logo span,
+.sidebar.collapsed .sidebar-item span {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: var(--sidebar-width-collapsed);
+    }
+    .sidebar-logo span,
+    .sidebar-item span {
+        display: none;
+    }
+}
