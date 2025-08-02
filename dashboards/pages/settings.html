@@ -1,0 +1,82 @@
+<!-- Settings Section -->
+<div id="settingsSection" class="content-section" style="display: none;">
+    <div class="page-header">
+        <h1>Settings</h1>
+    </div>
+
+    <div class="settings-container">
+        <div class="settings-card">
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Email Notifications</label>
+                        <p>Receive email updates for new submissions and messages</p>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="emailNotifications" checked>
+                        <label for="emailNotifications"></label>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Assignment Reminders</label>
+                        <p>Get notified about upcoming assignment deadlines</p>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="assignmentReminders" checked>
+                        <label for="assignmentReminders"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Preferences</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Default View</label>
+                        <p>Choose your default dashboard view</p>
+                    </div>
+                    <select id="defaultView">
+                        <option value="overview">Overview</option>
+                        <option value="assignments">Assignments</option>
+                        <option value="students">Students</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Items per Page</label>
+                        <p>Number of items to display in tables</p>
+                    </div>
+                    <select id="itemsPerPage">
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Privacy & Security</h3>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Two-Factor Authentication</label>
+                        <p>Add an extra layer of security to your account</p>
+                    </div>
+                    <button class="btn btn-secondary">Enable 2FA</button>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label>Session Timeout</label>
+                        <p>Automatically log out after period of inactivity</p>
+                    </div>
+                    <select id="sessionTimeout">
+                        <option value="30">30 minutes</option>
+                        <option value="60" selected>1 hour</option>
+                        <option value="120">2 hours</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

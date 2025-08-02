@@ -37,6 +37,10 @@ class FacultySidebar {
                     <i class="fas fa-users"></i>
                     <span>Students</span>
                 </a>
+                <a href="/messages" class="sidebar-item" data-route="messages">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
             </nav>
         `;
     }
@@ -74,3 +78,6 @@ class FacultySidebar {
         document.dispatchEvent(event);
     }
 }
+
+
+

@@ -72,19 +72,6 @@ body {
     text-decoration: none;
 }
 
-.nav-logo a:hover,
-.nav-logo a:visited,
-.nav-logo a:focus,
-.nav-logo a:active {
-    text-decoration: none;
-    color: #000000;
-}
-
-.nav-logo a span {
-    color: #000000;
-    text-decoration: none;
-}
-
 .nav-logo i {
     font-size: 1.8rem;
     color: var(--primary-color);
@@ -807,3 +794,6 @@ html {
     background: var(--primary-color);
     color: var(--secondary-color);
 } 
+
+
+

@@ -1,0 +1,84 @@
+<!-- Assignments Section -->
+<div id="assignmentsSection" class="content-section" style="display: none;">
+    <div class="page-header">
+        <h1>Assignment Management</h1>
+        <div class="header-actions">
+            <button class="btn btn-primary">
+                <i class="fas fa-plus"></i>
+                Create Assignment
+            </button>
+        </div>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="filters-section">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search assignments..." id="assignmentSearch">
+        </div>
+        <div class="filter-group">
+            <select id="courseFilter">
+                <option value="">All Courses</option>
+                <option value="cs301">CS 301</option>
+                <option value="cs302">CS 302</option>
+                <option value="cs401">CS 401</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <select id="statusFilter">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="draft">Draft</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Assignments Table -->
+    <div class="content-card">
+        <div class="table-container">
+            <table class="data-table" id="assignmentsTable">
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Course</th>
+                        <th>Type</th>
+                        <th>Due Date</th>
+                        <th>Submissions</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="assignment-title">
+                                <strong>Database Design Project</strong>
+                                <span class="assignment-description">Design and implement a relational database</span>
+                            </div>
+                        </td>
+                        <td>CS 301</td>
+                        <td><span class="badge badge-project">Project</span></td>
+                        <td>Dec 15, 2024</td>
+                        <td>24/30</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-secondary" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-primary" title="View Submissions">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- More assignment rows... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

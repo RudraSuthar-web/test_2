@@ -1,0 +1,65 @@
+<!-- Reports Section -->
+<div id="reportsSection" class="content-section" style="display: none;">
+    <div class="page-header">
+        <h1>Reports & Analytics</h1>
+        <div class="header-actions">
+            <div class="date-range">
+                <input type="date" id="startDate" value="2024-01-01">
+                <span>to</span>
+                <input type="date" id="endDate" value="2024-12-31">
+            </div>
+            <button class="btn btn-primary">
+                <i class="fas fa-download"></i>
+                Export Report
+            </button>
+        </div>
+    </div>
+
+    <!-- Report Cards -->
+    <div class="report-cards">
+        <div class="report-card">
+            <div class="report-header">
+                <h3>Submission Trends</h3>
+                <select class="report-filter">
+                    <option>Last 30 days</option>
+                    <option>Last 3 months</option>
+                    <option>This semester</option>
+                </select>
+            </div>
+            <div class="chart-container">
+                <canvas id="submissionTrendChart"></canvas>
+            </div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-header">
+                <h3>Grade Distribution</h3>
+            </div>
+            <div class="chart-container">
+                <canvas id="gradeDistributionChart"></canvas>
+            </div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-header">
+                <h3>Course Performance</h3>
+            </div>
+            <div class="performance-list">
+                <div class="performance-item">
+                    <span class="course-name">CS 301</span>
+                    <div class="performance-bar">
+                        <div class="bar-fill" style="width: 87%"></div>
+                    </div>
+                    <span class="performance-value">87%</span>
+                </div>
+                <div class="performance-item">
+                    <span class="course-name">CS 302</span>
+                    <div class="performance-bar">
+                        <div class="bar-fill" style="width: 92%"></div>
+                    </div>
+                    <span class="performance-value">92%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@
     <title>AssignTrack - Faculty Dashboard</title>
     <link rel="stylesheet" href="theme-variables.css">
     <link rel="stylesheet" href="dashboard-styles.css">
-    <link rel="stylesheet" href="faculty-dashboard-styles.css">
+    <link rel="stylesheet" href="faculty-dashboard-improved.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,11 +102,6 @@
                 </div>
                 
                 <div class="nav-right">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-                        <i class="fas fa-search search-icon"></i>
-                    </div>
-                    
                     <div class="notifications-dropdown">
                         <button class="notification-btn" aria-label="Notifications">
                             <i class="fas fa-bell"></i>
@@ -165,7 +160,7 @@
                         <p class="page-subtitle">Welcome back! Here's what's happening today.</p>
                     </div>
 
-                    <!-- Quick Stats Cards -->
+                    <!-- Dashboard Stats Cards -->
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-icon">
@@ -248,6 +243,15 @@
                                         <span class="activity-time">3 hours ago</span>
                                     </div>
                                 </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon submission">
+                                        <i class="fas fa-upload"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>John Smith</strong> submitted Lab Report</p>
+                                        <span class="activity-time">5 hours ago</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -276,7 +280,7 @@
                             </div>
                         </div>
 
-                        <!-- Calendar Widget -->
+                        <!-- Upcoming Deadlines -->
                         <div class="content-card">
                             <div class="card-header">
                                 <h2>Upcoming Deadlines</h2>
@@ -303,6 +307,17 @@
                                         <h4>Web Development Final</h4>
                                         <p>CS 201 - Web Development</p>
                                         <span class="deadline-status">Due in 5 days</span>
+                                    </div>
+                                </div>
+                                <div class="deadline-item">
+                                    <div class="deadline-date">
+                                        <span class="day">20</span>
+                                        <span class="month">Dec</span>
+                                    </div>
+                                    <div class="deadline-content">
+                                        <h4>Final Exam</h4>
+                                        <p>CS 101 - Programming Fundamentals</p>
+                                        <span class="deadline-status">Due in 7 days</span>
                                     </div>
                                 </div>
                             </div>
@@ -567,12 +582,8 @@
                         </button>
                     </div>
 
-                    <!-- Student Search and Filters -->
+                    <!-- Student Filters -->
                     <div class="search-filters">
-                        <div class="search-box">
-                            <input type="text" class="search-input" placeholder="Search students..." id="studentSearch">
-                            <i class="fas fa-search"></i>
-                        </div>
                         <div class="filter-group">
                             <label for="studentCourseFilter">Course:</label>
                             <select id="studentCourseFilter" class="form-select">
@@ -935,15 +946,15 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <form id="createAssignmentForm">
+            <form id="createAssignmentForm" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="assignmentTitle">Assignment Title</label>
-                    <input type="text" id="assignmentTitle" class="form-input" required>
+                    <label for="assignmentTitle">Assignment Title *</label>
+                    <input type="text" id="assignmentTitle" name="title" class="form-input" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="assignmentCourse">Course</label>
-                        <select id="assignmentCourse" class="form-select" required>
+                        <label for="assignmentCourse">Course *</label>
+                        <select id="assignmentCourse" name="course" class="form-select" required>
                             <option value="">Select Course</option>
                             <option value="CS101">CS 101 - Programming Fundamentals</option>
                             <option value="CS201">CS 201 - Web Development</option>
@@ -951,8 +962,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="assignmentType">Type</label>
-                        <select id="assignmentType" class="form-select" required>
+                        <label for="assignmentType">Type *</label>
+                        <select id="assignmentType" name="type" class="form-select" required>
                             <option value="">Select Type</option>
                             <option value="assignment">Assignment</option>
                             <option value="project">Project</option>
@@ -963,21 +974,61 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="assignmentDueDate">Due Date</label>
-                        <input type="date" id="assignmentDueDate" class="form-input" required>
+                        <label for="assignmentDueDate">Due Date *</label>
+                        <input type="date" id="assignmentDueDate" name="due_date" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="assignmentPoints">Points</label>
-                        <input type="number" id="assignmentPoints" class="form-input" min="1" max="100" value="100" required>
+                        <label for="assignmentPoints">Points *</label>
+                        <input type="number" id="assignmentPoints" name="points" class="form-input" min="1" max="100" value="100" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="assignmentDescription">Description</label>
-                    <textarea id="assignmentDescription" class="form-input" rows="4" placeholder="Enter assignment description..."></textarea>
+                    <textarea id="assignmentDescription" name="description" class="form-input" rows="4" placeholder="Enter assignment description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentFile">Assignment PDF *</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <input type="file" id="assignmentFile" name="file" accept=".pdf" required>
+                        <div class="file-upload-content">
+                            <div class="file-upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="file-upload-text">
+                                <p class="upload-main-text">Click to browse or drag and drop</p>
+                                <p class="upload-sub-text">PDF files only (Max 10MB)</p>
+                            </div>
+                            <button type="button" class="btn btn-outline" id="browseFileBtn">
+                                <i class="fas fa-folder-open"></i>
+                                Browse Files
+                            </button>
+                        </div>
+                        <div class="file-selected" id="fileSelected" style="display: none;">
+                            <div class="file-info">
+                                <i class="fas fa-file-pdf file-icon"></i>
+                                <div class="file-details">
+                                    <span class="file-name" id="selectedFileName">No file selected</span>
+                                    <span class="file-size" id="selectedFileSize"></span>
+                                </div>
+                                <button type="button" class="remove-file" id="removeFileBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="upload-progress" id="uploadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span class="progress-text" id="progressText">0%</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn btn-secondary" id="cancelAssignment">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Create Assignment</button>
+                    <button type="submit" class="btn btn-primary" id="submitAssignment">
+                        <i class="fas fa-upload"></i>
+                        Create Assignment
+                    </button>
                 </div>
             </form>
         </div>
@@ -1025,5 +1076,12 @@
     <!-- Scripts -->
     <script src="user-management.js"></script>
     <script src="faculty-dashboard.js"></script>
+    <script src="faculty-dashboard-improved.js"></script>
 </body>
 </html> 
+
+
+
+
+
+

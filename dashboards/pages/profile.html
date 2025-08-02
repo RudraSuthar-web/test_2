@@ -1,0 +1,73 @@
+<!-- Profile Section -->
+<div id="profileSection" class="content-section" style="display: none;">
+    <div class="page-header">
+        <h1>Profile Settings</h1>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar-section">
+                    <img src="https://via.placeholder.com/120x120/333333/ffffff?text=FM" alt="Profile" class="profile-avatar">
+                    <button class="btn btn-secondary btn-sm">Change Photo</button>
+                </div>
+                <div class="profile-info">
+                    <h2>Dr. Faculty Member</h2>
+                    <p>Computer Science Department</p>
+                    <p>faculty.member@university.edu</p>
+                </div>
+            </div>
+
+            <form class="profile-form">
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" value="Faculty" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" value="Member" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" value="faculty.member@university.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department">
+                            <option value="cs">Computer Science</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Security</h3>
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
